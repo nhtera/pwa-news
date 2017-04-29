@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://particles4dev-team.github.io/pwa-weather",
   "dependencies": {
+    "es6-promise": "^4.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "sw-precache": "^5.1.0"
