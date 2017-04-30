@@ -3,12 +3,13 @@ module.exports = {
   staticFileGlobs: [
     'build/*.html',
     'build/manifest.json',
-    'build/static/**/!(*map*)'
+    'build/static/**/!(*map*)',
+    '**.{png,jpg,gif,svg,eot,ttf,woff}',
   ],
   dontCacheBustUrlsMatching: /\.\w{8}\./,
   swFilePath: 'build/service-worker.js',
   runtimeCaching: [{
-    urlPattern: /^https:\/\/api.rss2json\.com\/v1\/api.json/,
+    urlPattern: /^https:\/\/newsapi\.org\/v1\/articles/,
     handler: 'networkFirst'
   }]
 };

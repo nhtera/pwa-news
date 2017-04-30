@@ -35,7 +35,7 @@
       To create a production bundle, use `npm run build`.
     -->
     <script>
-      // if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+      // if ('serviceWorker' in navigator && process && process.env.NODE_ENV === 'production') {
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/pwa-weather/service-worker.js');

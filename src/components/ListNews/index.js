@@ -12,7 +12,7 @@ class ListNews extends Component {
         justifyContent: 'center',
       }}>
         {this.props.news.map(item => (
-            <News key={item.guid} item={item} />
+            <News key={item.url} item={item} />
         ))}
       </div>
     );
