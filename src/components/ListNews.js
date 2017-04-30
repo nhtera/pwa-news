@@ -1,17 +1,12 @@
 import React from 'react';
+import News from './News';
 
 class ListNews extends React.Component {
   render() {
     return (
       <div>
         {this.props.news.map(item => (
-        <article key={item.link}>
-            <h1><a href={item.link}>{item.title}</a></h1>
-            <div
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: item.content }}
-            />
-        </article>
+            <News key={item.guid} item={item} />
         ))}
       </div>
     );

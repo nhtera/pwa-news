@@ -24,7 +24,7 @@ function reactNews () {
       })
       .catch((err) => {
         lastFetchTask = null;
-        throw err;
+        // throw err;
       });
 
     if (items.length) {
@@ -36,6 +36,19 @@ function reactNews () {
 
   return items;
 };
+
+// function newsFromHackernews () {
+//   fetch('https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty')
+//       .then(response => response.json())
+//       .then((data) => {
+//         console.log(data);
+//       })
+//       .catch((err) => {
+//         // throw err;
+//       });
+// };
+
+// newsFromHackernews();
 
 export {
     reactNews,
