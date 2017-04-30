@@ -1,10 +1,11 @@
-import React, { Component, Children } from 'react';
+import React, { PropTypes, Component, Children } from 'react';
 import { withRouter } from 'react-router';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import { List, ListItem, makeSelectable} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
+import spacing from 'material-ui/styles/spacing';
 
 const SelectableList = makeSelectable(List);
 
@@ -14,6 +15,10 @@ class Layout extends Component {
     super(props);
     this.state = {open: false};
   }
+
+  static contextTypes = {
+    muiTheme: PropTypes.object.isRequired,
+  };
 
   handleToggle = () => this.setState({open: !this.state.open});
 
@@ -28,6 +33,11 @@ class Layout extends Component {
     return (
     <div>
         <AppBar
+        style={{
+            position: 'fixed',
+            zIndex: this.context.muiTheme.zIndex.appBar + 1,
+            top: 0,
+        }}
         onLeftIconButtonTouchTap={this.handleToggle}
         title="News"
         />
@@ -46,7 +56,12 @@ class Layout extends Component {
             </SelectableList>
             <Divider />
         </Drawer>
+        <div style={{
+            paddingTop: spacing.desktopKeylineIncrement,
+            minHeight: 400,
+        }}>
         { Children.only(this.props.children) }
+        </div>
     </div>
     );
   }

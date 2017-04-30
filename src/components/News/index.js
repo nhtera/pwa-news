@@ -4,8 +4,10 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 class News extends React.Component {
   render() {
     const { item } = this.props;
+
     return (
-			<Card>
+			<Card style={{width: '250px', margin: '10px'}}>
+                {/**
 				<CardTitle title={item.title} subtitle={item.pubDate} />
 				<CardText>
 					<div
@@ -13,6 +15,12 @@ class News extends React.Component {
 						dangerouslySetInnerHTML={{ __html: item.content }}
 					/>
 				</CardText>
+                */}
+                <CardMedia>
+                    <img src={item.urlToImage} />
+                </CardMedia>
+                <CardTitle title={item.title} subtitle={item.publishedAt} />
+
 			</Card>
     );
   }

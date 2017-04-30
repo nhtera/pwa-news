@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import ReactNews from '../ReactNews';
 class Home extends Component {
 
   render() {
     return (
-      <div>HOME</div>
+      <div><ReactNews /></div>
     );
   }
 }
