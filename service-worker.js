@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","5c33cad0dc7992f3552a00301cacc488"],["manifest.json","c98392725739e39d3ac8730079e17519"],["static/css/main.eab1aedb.css","389189edff42dab9273cb97b741c0546"],["static/js/main.d22c1c54.js","b5cc0018dd432895158f48fcccda71eb"]];
+var precacheConfig = [["index.html","ea953c46c6cef2f9aefc71571d8f095d"],["manifest.json","e5937ec656d11c06fbbd2f51baf0d97e"],["static/css/main.eab1aedb.css","389189edff42dab9273cb97b741c0546"],["static/js/main.995c2332.js","51f0e2d4eb5f9e9ad82284348df73d25"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -283,7 +283,7 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/^https:\/\/api.rss2json\.com\/v1\/api.json/, toolbox.networkFirst, {});
+toolbox.router.get(/^https:\/\/newsapi\.org\/v1\/articles/, toolbox.networkFirst, {});
 
 
 
