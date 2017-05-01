@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactNews from '../ReactNews';
 import ListNews from '../../components/ListNews';
 
 class NewsPage extends Component {

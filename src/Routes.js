@@ -8,8 +8,6 @@ import NoMatch from './controller/NoMatch';
 import Layout from './controller/Layout';
 import AbcNewsAU from './apis/AbcNewsAU';
 
-const prefix = process.env.REACT_APP_PREURL || '';
-
 function createRouter(title, fetch) {
   return class extends React.Component {
     render() {
@@ -27,12 +25,12 @@ const DailyMailPage = createRouter('Daily Mail', AbcNewsAU.getTop('daily-mail'))
 const Routes = (
 <Layout>
     <Switch>
-        <Route path={`/${prefix}/abc-news-au`} component={ AbcNewsPage } />
-        <Route path={`/${prefix}/bbc`} component={ BbcPage } />
-        <Route path={`/${prefix}/cnn`} component={ CnnPage  } />
-        <Route path={`/${prefix}/bloomberg`} component={ BloombergPage } />
-        <Route path={`/${prefix}/daily-mail`} component={ DailyMailPage } />
-        <Route exact path={`${prefix}/`} component={ AbcNewsPage } />
+        <Route path={`/abc-news-au`} component={ AbcNewsPage } />
+        <Route path={`/bbc`} component={ BbcPage } />
+        <Route path={`/cnn`} component={ CnnPage  } />
+        <Route path={`/bloomberg`} component={ BloombergPage } />
+        <Route path={`/daily-mail`} component={ DailyMailPage } />
+        <Route exact path={`/`} component={ AbcNewsPage } />
         <Route component={ NoMatch }/>
     </Switch>
 </Layout>
