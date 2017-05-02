@@ -1,4 +1,5 @@
 require('es6-promise').polyfill();
+const runtime = require('offline-plugin/runtime');
 
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -19,3 +20,14 @@ render(
     </MuiThemeProvider>
   </Router>
 , document.getElementById('root'));
+
+runtime.install({
+  onUpdateReady: () => {
+    // Tells to new SW to take control immediately
+    runtime.applyUpdate();
+  },
+  onUpdated: () => {
+    // Reload the webpage to load into the new version
+    window.location.reload();
+  },
+});
