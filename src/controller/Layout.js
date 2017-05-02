@@ -9,6 +9,14 @@ import spacing from 'material-ui/styles/spacing';
 
 const SelectableList = makeSelectable(List);
 
+const titleStore = {
+    'bloomberg': 'Bloomberg',
+    'bbc': 'BBC News',
+    'abc-news-au': 'ABC News',
+    'cnn': 'CNN',
+    'daily-mail': 'Daily Mail',
+};
+
 class Layout extends Component {
 
   constructor(props) {
@@ -30,6 +38,8 @@ class Layout extends Component {
 
   render() {
     const { location } = this.props;
+    const title = titleStore[location.pathname.substring(1)] || 'News';
+
     return (
     <div>
         <AppBar
@@ -39,10 +49,10 @@ class Layout extends Component {
             top: 0,
         }}
         onLeftIconButtonTouchTap={this.handleToggle}
-        title="News"
+        title={title}
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
-            <AppBar title="News" onLeftIconButtonTouchTap={this.handleToggle} />
+            <AppBar title={title} onLeftIconButtonTouchTap={this.handleToggle} />
             <SelectableList
                 value={location.pathname}
                 onChange={ this.onChangeList }

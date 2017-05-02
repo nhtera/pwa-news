@@ -6,21 +6,25 @@ class News extends React.Component {
     const { item } = this.props;
 
     return (
-			<Card style={{width: '250px', margin: '10px'}}>
-                {/**
+			<Card style={{width: '320px', margin: '10px'}}>
+        <CardHeader
+          title={item.title}
+          subtitle={item.publishedAt}
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
+        {/**
 				<CardTitle title={item.title} subtitle={item.pubDate} />
-				<CardText>
+        */}
+        <CardMedia>
+          <img src={item.urlToImage} />
+        </CardMedia>
+        <CardText expandable={true}>
 					<div
 						// eslint-disable-next-line react/no-danger
-						dangerouslySetInnerHTML={{ __html: item.content }}
+						dangerouslySetInnerHTML={{ __html: item.description }}
 					/>
 				</CardText>
-                */}
-                <CardMedia>
-                    <img src={item.urlToImage} />
-                </CardMedia>
-                <CardTitle title={item.title} subtitle={item.publishedAt} />
-
 			</Card>
     );
   }
