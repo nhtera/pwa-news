@@ -38,7 +38,7 @@ class Layout extends Component {
 
   render() {
     const { location } = this.props;
-    const title = titleStore[location.pathname.substring(1)] || 'News';
+    const title = location && titleStore[location.pathname.substring(1)] || 'News';
 
     return (
     <div>
@@ -54,7 +54,7 @@ class Layout extends Component {
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
             <AppBar title={title} onLeftIconButtonTouchTap={this.handleToggle} />
             <SelectableList
-                value={location.pathname}
+                value={location && location.pathname}
                 onChange={ this.onChangeList }
             >
                 <ListItem value={`/abc-news-au`} primaryText="ABC News (AU)" leftAvatar={<Avatar src="https://icons.better-idea.org/icon?url=http://www.abc.net.au/news&size=70..120..200" />} />
