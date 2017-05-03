@@ -16,7 +16,6 @@ function createRouter(title, fetch) {
   }
 }
 
-const AbcNewsPage = createRouter('ABC News', AbcNewsAU.getTop());
 const BbcPage = createRouter('BBC', AbcNewsAU.getTop('bbc-news'));
 const CnnPage = createRouter('CNN', AbcNewsAU.getTop('cnn'));
 const BloombergPage = createRouter('Bloomberg', AbcNewsAU.getTop('bloomberg'));
@@ -25,12 +24,11 @@ const DailyMailPage = createRouter('Daily Mail', AbcNewsAU.getTop('daily-mail'))
 const Routes = (
 <Layout>
     <Switch>
-        <Route path={`/abc-news-au`} component={ AbcNewsPage } />
+        <Route path={`/bloomberg`} component={ BloombergPage } />
         <Route path={`/bbc`} component={ BbcPage } />
         <Route path={`/cnn`} component={ CnnPage  } />
-        <Route path={`/bloomberg`} component={ BloombergPage } />
         <Route path={`/daily-mail`} component={ DailyMailPage } />
-        <Route exact path={`/`} component={ AbcNewsPage } />
+        <Route exact path={`/`} component={ BloombergPage } />
         <Route component={ NoMatch }/>
     </Switch>
 </Layout>
