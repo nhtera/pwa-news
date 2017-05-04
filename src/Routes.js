@@ -8,29 +8,27 @@ import NoMatch from './controller/NoMatch';
 import Layout from './controller/Layout';
 import AbcNewsAU from './apis/AbcNewsAU';
 
-function createRouter(title, fetch) {
+function createRouter(title, id, fetch) {
   return class extends React.Component {
     render() {
-      return <NewsPage title={title} fetch={fetch} />
+      return <NewsPage title={title} id={id} fetch={fetch} />
     }
   }
 }
 
-const AbcNewsPage = createRouter('ABC News', AbcNewsAU.getTop());
-const BbcPage = createRouter('BBC', AbcNewsAU.getTop('bbc-news'));
-const CnnPage = createRouter('CNN', AbcNewsAU.getTop('cnn'));
-const BloombergPage = createRouter('Bloomberg', AbcNewsAU.getTop('bloomberg'));
-const DailyMailPage = createRouter('Daily Mail', AbcNewsAU.getTop('daily-mail'));
+const TheNewYorkTimesPage = createRouter('The New York Times', 'the-new-york-times', AbcNewsAU.getTop('the-new-york-times'));
+const BbcPage = createRouter('BBC', 'bbc-news', AbcNewsAU.getTop('bbc-news'));
+const BloombergPage = createRouter('Bloomberg', 'bloomberg', AbcNewsAU.getTop('bloomberg'));
+const BuzzFeedPage = createRouter('BuzzFeed', 'buzzfeed', AbcNewsAU.getTop('buzzfeed'));
 
 const Routes = (
 <Layout>
     <Switch>
-        <Route path={`/abc-news-au`} component={ AbcNewsPage } />
+        <Route path={`/the-new-york-times`} component={ TheNewYorkTimesPage } />
         <Route path={`/bbc`} component={ BbcPage } />
-        <Route path={`/cnn`} component={ CnnPage  } />
         <Route path={`/bloomberg`} component={ BloombergPage } />
-        <Route path={`/daily-mail`} component={ DailyMailPage } />
-        <Route exact path={`/`} component={ AbcNewsPage } />
+        <Route path={`/buzzfeed`} component={ BuzzFeedPage } />
+        <Route exact path={`/`} component={ TheNewYorkTimesPage } />
         <Route component={ NoMatch }/>
     </Switch>
 </Layout>
