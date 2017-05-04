@@ -7,6 +7,12 @@ import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 import spacing from 'material-ui/styles/spacing';
 
+import nytPNG from './the-new-york-times.png';
+import bbcPNG from './bbc.png';
+import bloombergPNG from './bloomberg.png';
+import buzzfeedPNG from './buzzfeed.png';
+import k14PNG from './k14.png';
+
 const SelectableList = makeSelectable(List);
 
 const titleStore = {
@@ -31,13 +37,14 @@ class Layout extends Component {
   handleToggle = () => this.setState({open: !this.state.open});
 
   onChangeList = (event, value) => {
+    // this.context.router.push(value);
     this.props.history.push(value);
     this.handleToggle();
   };
 
   render() {
     const { location } = this.props;
-    const title = location && titleStore[location.pathname.substring(1)] || 'News';
+    const title = titleStore[location.pathname.substring(1)] || 'News';
 
     return (
     <div>
@@ -53,20 +60,20 @@ class Layout extends Component {
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
             <AppBar title={title} onLeftIconButtonTouchTap={this.handleToggle} />
             <SelectableList
-                value={location && location.pathname}
+                value={location.pathname}
                 onChange={ this.onChangeList }
             >
-                <ListItem value={`/bloomberg`} primaryText="Bloomberg" leftAvatar={<Avatar src="https://icons.better-idea.org/icon?url=http://www.bloomberg.com&size=70..120..200" />} />
-                <ListItem value={`/bbc`} primaryText="BBC News" leftAvatar={<Avatar src="https://icons.better-idea.org/icon?url=http://www.bbc.co.uk/news&size=70..120..200" />} />
-                <ListItem value={`/cnn`} primaryText="CNN" leftAvatar={<Avatar src="https://icons.better-idea.org/icon?url=http://us.cnn.com&size=70..120..200" />} />
-                <ListItem value={`/daily-mail`} primaryText="Daily Mail" leftAvatar={<Avatar src="https://icons.better-idea.org/icon?url=http://www.dailymail.co.uk/home/index.html&size=70..120..200" />} />
-                <ListItem value={`/kenh-14`} primaryText="Kenh14" leftAvatar={<Avatar src="http://kenh14cdn.com/web_images/k14_logo.png" />} />
+                <ListItem value={`/the-new-york-times`} primaryText="The New York Times" leftAvatar={<Avatar src={nytPNG} />} />
+                <ListItem value={`/bbc`} primaryText="BBC News" leftAvatar={<Avatar src={bbcPNG} />} />
+                <ListItem value={`/bloomberg`} primaryText="Bloomberg" leftAvatar={<Avatar src={bloombergPNG} />} />
+                <ListItem value={`/buzzfeed`} primaryText="Buzz Feed" leftAvatar={<Avatar src={buzzfeedPNG} />} />
+                <ListItem value={`/kenh-14`} primaryText="Kenh14" leftAvatar={<Avatar src={k14PNG} />} />
             </SelectableList>
             <Divider />
         </Drawer>
         <div style={{
-            paddingTop: spacing.desktopKeylineIncrement,
-            minHeight: 400,
+        paddingTop: spacing.desktopKeylineIncrement,
+        minHeight: 400,
         }}>
         { Children.only(this.props.children) }
         </div>

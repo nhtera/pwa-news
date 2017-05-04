@@ -12,8 +12,16 @@ class NewsPage extends Component {
   }
 
   componentDidMount() {
+    // check network connection
+    // if on 
+      // send request
+    // if off
+      // get data from indexedDB
     this.props.fetch()
     .then(res => {
+      // check service worker
+      // if not save data in indexedDB
+      // key = this.props.key
       this.setState({news: res.articles});
     });
   }
