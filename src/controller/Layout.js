@@ -64,10 +64,7 @@ class Layout extends Component {
                 onChange={ this.onChangeList }
             >
                 <ListItem value={`/the-new-york-times`} primaryText="The New York Times" leftAvatar={<Avatar src={nytPNG} />} />
-                <ListItem value={`/bbc`} primaryText="BBC News" leftAvatar={<Avatar src={bbcPNG} />} />
                 <ListItem value={`/bloomberg`} primaryText="Bloomberg" leftAvatar={<Avatar src={bloombergPNG} />} />
-                <ListItem value={`/buzzfeed`} primaryText="Buzz Feed" leftAvatar={<Avatar src={buzzfeedPNG} />} />
-                <ListItem value={`/kenh-14`} primaryText="Kenh14" leftAvatar={<Avatar src={k14PNG} />} />
             </SelectableList>
             <Divider />
         </Drawer>

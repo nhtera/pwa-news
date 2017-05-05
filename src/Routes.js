@@ -17,7 +17,6 @@ function createRouter(title, id, fetch) {
 }
 
 const TheNewYorkTimesPage = createRouter('The New York Times', 'the-new-york-times', AbcNewsAU.getTop('the-new-york-times'));
-const BbcPage = createRouter('BBC', 'bbc-news', AbcNewsAU.getTop('bbc-news'));
 const BloombergPage = createRouter('Bloomberg', 'bloomberg', AbcNewsAU.getTop('bloomberg'));
 const BuzzFeedPage = createRouter('BuzzFeed', 'buzzfeed', AbcNewsAU.getTop('buzzfeed'));
 
@@ -25,7 +24,6 @@ const Routes = (
 <Layout>
     <Switch>
         <Route path={`/the-new-york-times`} component={ TheNewYorkTimesPage } />
-        <Route path={`/bbc`} component={ BbcPage } />
         <Route path={`/bloomberg`} component={ BloombergPage } />
         <Route path={`/buzzfeed`} component={ BuzzFeedPage } />
         <Route exact path={`/`} component={ TheNewYorkTimesPage } />
