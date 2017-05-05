@@ -27,18 +27,20 @@ class NewsPage extends Component {
     if (isOnline()) {
       this.props.fetch()
         .then(res => {
-          if (!isSupportServiceWorker()) {
+          // if (!isSupportServiceWorker()) {
             saveData(this.props.id, res.articles).then((articles) => {
               this.saveAllNewsImages(articles);
             });
-          }
+          // }
           this.setState({news: res.articles});
         });
     } else {
-      getData(this.props.id)
-      .then((articles) => {
-        this.setState({news: articles});
-      });
+      // if (!isSupportServiceWorker()) {
+        getData(this.props.id)
+        .then((articles) => {
+          this.setState({news: articles});
+        });
+      // }
     }
   }
 

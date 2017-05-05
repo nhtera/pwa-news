@@ -18,7 +18,7 @@ class News extends React.Component {
 
   getImageURI = (props) => {
     const { item } = props;
-    if (!isOnline() && !isSupportServiceWorker()) {
+    if (!isOnline()/* && !isSupportServiceWorker()*/) {
       const URL = window.URL || window.webkitURL;
       getData(item.url).then((blobData) => {
         const imageURI = URL.createObjectURL(blobData);
