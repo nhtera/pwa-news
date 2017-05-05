@@ -11,7 +11,7 @@ class ListNews extends Component {
         alignItems: 'flex-end',
         justifyContent: 'center',
       }}>
-        {this.props.news.map(item => (
+        {this.props.news && this.props.news.map(item => (
             <News key={item.url} item={item} />
         ))}
       </div>
